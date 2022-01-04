@@ -41,5 +41,5 @@ const App = (function (ItemCtrl, UICtrl){
     }
 })(ItemCtrl, UICtrl)
 
-/Initialize App
+//Initialize App
 App.init()
