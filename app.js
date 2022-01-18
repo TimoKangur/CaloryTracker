@@ -225,9 +225,6 @@ function myFunction() {
         x.style.display = "none";
     }
 }
-function myFunction() {
-    var x =document.getElementById("blubtn");
-}
 
 //Initialize App
 App.init()
