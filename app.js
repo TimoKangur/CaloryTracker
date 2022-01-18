@@ -110,7 +110,7 @@ const UICtrl = (function(){
         items.forEach(function(item){
             html += `<li class="collection-item" id="item-${item.id}">
         <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
-        <a href="#" class="secondary-content">
+        <a  href="#" class="secondary-content">
             <i class="fas fa-pencil-alt"></i>
         </a>
         </li>`;
@@ -139,7 +139,7 @@ const UICtrl = (function(){
             //add HTML
             li.innerHTML = `<strong>${item.name}: </strong>
                 <em>${item.calories} Calories</em>
-                <a href="#" class="secondary-content">
+                <a  onclick="myFunction()" href="#" class="secondary-content">
                 <i class="edit-item fa fa-pencil"></i>
                 </a>`;
             //insert item
@@ -215,6 +215,19 @@ const App = (function (ItemCtrl,StorageCtrl, UICtrl){
         }
     }
 })(ItemCtrl, StorageCtrl, UICtrl)
+
+//Nupp
+function myFunction() {
+    var x = document.getElementById("deletepls");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+function myFunction() {
+    var x =document.getElementById("blubtn");
+}
 
 //Initialize App
 App.init()
