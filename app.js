@@ -102,35 +102,35 @@ const UICtrl = (function(){
         totalCalories: '.total-calories'
     }
     return {
-    populateItemList: function(items){
-        //create html content
-        let html = '';
+        populateItemList: function(items){
+            //create html content
+            let html = '';
 
-        //parse data and create list items html
-        items.forEach(function(item){
-            html += `<li class="collection-item" id="item-${item.id}">
+            //parse data and create list items html
+            items.forEach(function(item){
+                html += `<li class="collection-item" id="item-${item.id}">
         <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
-        <a href="#" class="secondary-content">
+        <a  href="#" class="secondary-content">
             <i class="fas fa-pencil-alt"></i>
         </a>
         </li>`;
-        })
+            })
 
-        //insert list items
-        document.querySelector(UISelectors.itemList).innerHTML = html;
+            //insert list items
+            document.querySelector(UISelectors.itemList).innerHTML = html;
         },
         getSelectors: function (){
-        return UISelectors;
+            return UISelectors;
         },
         getItemInput: function (){
-        return {
-            name:document.querySelector(UISelectors.itemNameInput).value,
-            calories: document.querySelector(UISelectors.itemCaloriesInput).value
+            return {
+                name:document.querySelector(UISelectors.itemNameInput).value,
+                calories: document.querySelector(UISelectors.itemCaloriesInput).value
             }
         },
         addListItem: function(item){
 
-        //create li element
+            //create li element
             const li = document.createElement('li');
             //add class
             li.className = 'collection-item';
@@ -139,7 +139,7 @@ const UICtrl = (function(){
             //add HTML
             li.innerHTML = `<strong>${item.name}: </strong>
                 <em>${item.calories} Calories</em>
-                <a href="#" class="secondary-content">
+                <a  onclick="myFunction();checkid(this)" href="#" class="secondary-content">
                 <i class="edit-item fa fa-pencil"></i>
                 </a>`;
             //insert item
@@ -147,11 +147,11 @@ const UICtrl = (function(){
             document.querySelector(UISelectors.itemList).insertAdjacentElement('beforeend', li)
         },
         clearInput: function (){
-        document.querySelector(UISelectors.itemNameInput).value = '';
-        document.querySelector(UISelectors.itemCaloriesInput).value = '';
+            document.querySelector(UISelectors.itemNameInput).value = '';
+            document.querySelector(UISelectors.itemCaloriesInput).value = '';
         },
         showTotalCalories: function(totalCalories){
-        document.querySelector(UISelectors.totalCalories).textContent =totalCalories;
+            document.querySelector(UISelectors.totalCalories).textContent =totalCalories;
         }
     }
 })();
@@ -173,7 +173,7 @@ const App = (function (ItemCtrl,StorageCtrl, UICtrl){
         const input = UICtrl.getItemInput()
         //check for name and calorie input
         if(input.name !== '' && input.calories !== ''){
-           const newItem = ItemCtrl.addItem(input.name, input.calories)
+            const newItem = ItemCtrl.addItem(input.name, input.calories)
             // clear item to UI items list
             UICtrl.addListItem(newItem)
             //get total calories
@@ -215,6 +215,23 @@ const App = (function (ItemCtrl,StorageCtrl, UICtrl){
         }
     }
 })(ItemCtrl, StorageCtrl, UICtrl)
+
+//Nupp
+function myFunction() {
+    var x = document.getElementById("deletepls");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "block";
+    }
+}
+function checkid(elem)
+{
+    console.log(elem.parentNode.id);
+}
+function deleteanitem() {
+
+}
 
 //Initialize App
 App.init()
